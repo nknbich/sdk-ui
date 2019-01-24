@@ -36,19 +36,15 @@ const measures = [{
                   {
                      "measure" : {
                         "definition" : {
-                           "previousPeriodMeasure" : {
-                              "dateDataSets" : [
-                                 {
-                                    "dataSet" : {
-                                       "uri" : "/gdc/md/oa41nnalv7fgay0vxxk2lgilctgzjnoa/obj/520"
-                                    },
-                                    "periodsAgo" : 1
-                                 }
-                              ],
-                              "measureIdentifier" : "CloseBOP"
+                           "popMeasureDefinition" : {
+                              "measureIdentifier" : "CloseBOP",
+                              "popAttribute" : {
+                                 "uri" : "/gdc/md/oa41nnalv7fgay0vxxk2lgilctgzjnoa/obj/513"
+                              }
                            }
                         },
-                        "localIdentifier" : "CloseBOP_pop"
+                        "localIdentifier" : "CloseBOP_pop",
+						"alias": "SPY Close BOP"
                      }
                   },
                   {
@@ -214,9 +210,9 @@ class App extends Component {
                   "dataSet" : {
                      "uri" : "/gdc/md/oa41nnalv7fgay0vxxk2lgilctgzjnoa/obj/520"
                   },
-                  "from" : -72,
-                  "granularity" : "GDC.time.month",
-                  "to" : -60
+                  "from" : -3,
+                  "granularity" : "GDC.time.quarter",
+                  "to" : 0
                }
             }
 		filters.push(comparison1);
@@ -241,15 +237,7 @@ class App extends Component {
 		<ColumnChart 
 			projectId={global.projectId}
 			measures={measures}
-			filters = {[{
-               "absoluteDateFilter" : {
-                  "dataSet" : {
-                     "uri" : "/gdc/md/oa41nnalv7fgay0vxxk2lgilctgzjnoa/obj/520"
-                  },
-                  "from" : "2012-11-01",
-                  "to" : "2013-02-01"
-               }
-            }]}
+			filters = {filters}
 			/*drillableItems={[
 				  {  
 				  //drill with specifix attribute show all values of measure belong attribute
